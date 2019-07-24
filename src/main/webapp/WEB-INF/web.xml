@@ -1,0 +1,4 @@
+<web-app
+        xmlns="http://java.sun.com/dtd/web-app_2_3.dtd">
+    <display-name>Some App</display-name>
+</web-app>
