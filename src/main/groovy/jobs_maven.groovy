@@ -26,7 +26,21 @@ class MavenJobBuilder {
                     branch(this.branchName)
                 }
             }
-            goals('clean package')
+            goals('package')
+
+            publishers {
+                deployPublisher{
+                    adapters {
+                        tomcat8xAdapter {
+                            credentialsId(this.credentialsId)
+                            url("localhost:8082")
+                        }
+                        contextPath("target/")
+                        onFailure(false)
+                        war("mvnsample-1.0-SNAPSHOT.war")
+                    }
+                }
+            }
         }
     }
 }
